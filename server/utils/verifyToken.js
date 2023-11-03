@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const verifyToken = (token) => {
-  return jwt.verify(token, "anysecretkey", (err, decoded) => {
+  return jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
     if (err) {
       return false;
     } else {

@@ -7,9 +7,9 @@ export default function AddTransaction() {
   const { createTransactionAction, error } = useContext(transactionContext);
   const [formData, setFormData] = useState({
     name: "",
-    transactionType: "",
+    transactionType: "Income",
     amount: "",
-    category: "",
+    category: "Food",
     notes: "",
     color: "",
     date: "",
@@ -44,6 +44,7 @@ export default function AddTransaction() {
                 <div className="mt-1">
                   <input
                     name="name"
+                    required
                     value={formData.name}
                     onChange={handleChange}
                     type="text"
@@ -72,6 +73,7 @@ export default function AddTransaction() {
                 <div className="mt-1">
                   <input
                     name="amount"
+                    required
                     value={formData.amount}
                     onChange={handleChange}
                     type="number"
@@ -111,6 +113,7 @@ export default function AddTransaction() {
                 <div className="mt-1">
                   <input
                     value={formData.color}
+                    required
                     name="color"
                     onChange={handleChange}
                     style={{
@@ -131,6 +134,7 @@ export default function AddTransaction() {
                 <div className="mt-1">
                   <input
                     name="date"
+                    required
                     value={formData.date}
                     onChange={handleChange}
                     type="date"
@@ -145,6 +149,7 @@ export default function AddTransaction() {
                 </label>
                 <div className="mt-1">
                   <textarea
+                    required
                     rows={4}
                     name="notes"
                     value={formData.notes}

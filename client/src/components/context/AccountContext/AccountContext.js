@@ -109,8 +109,9 @@ export const AccountContextProvider = ({ children }) => {
           type: ACCOUNT_CREATION_SUCCESS,
           payload: res?.data?.data,
         });
+        // Redirect
+        window.location.href = "/dashboard";
       }
-      console.log(res);
     } catch (error) {
       dispatch({
         type: ACCOUNT_CREATION_FAIL,

@@ -1,7 +1,7 @@
 const Account = require("../../model/Account");
 const Transaction = require("../../model/Transaction");
 const User = require("../../model/User");
-const AppErr = require("../../utils/appErr");
+const AppErr = require("../../utils/AppErr");
 
 // Create Transaction
 const createTransactionCtrl = async (req, res, next) => {

@@ -62,6 +62,8 @@ export const TransactionContextProvider = ({ children }) => {
           type: TRANSACTION_CREATION_SUCCESS,
           payload: res?.data?.data,
         });
+        // Redirect
+        window.location.href = `/account-details/${accountData.account}`;
       }
     } catch (error) {
       dispatch({

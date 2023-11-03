@@ -1,6 +1,5 @@
-require("dotenv").config();
 const express = require("express");
-require("./config/dbConnect");
+const dbConnect = require("./config/dbConnect");
 const cors = require("cors");
 const usersRoute = require("./routes/users/usersRoute");
 const transactionsRoute = require("./routes/transactions/transactionsRoute");
@@ -30,4 +29,16 @@ app.use(globalErrHandler);
 
 // listen to server
 const PORT = process.env.PORT || 9000;
-app.listen(PORT, console.log(`Server is up and running on port ${PORT}`));
+
+const start = async () => {
+  try {
+    await dbConnect();
+    console.log("Database Connected successfully");
+
+    app.listen(PORT, console.log(`Server is up and running on port ${PORT}`));
+  } catch (error) {
+    console.error(`Server Connection Error ${error.message}`);
+  }
+};
+
+start();

@@ -1,4 +1,4 @@
-const AppErr = require("../utils/appErr");
+const AppErr = require("../utils/AppErr");
 const getTokenFromHeader = require("../utils/getTokenFromHeader");
 const verifyToken = require("../utils/verifyToken");
 

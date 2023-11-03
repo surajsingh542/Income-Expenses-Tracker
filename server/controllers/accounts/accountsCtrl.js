@@ -1,6 +1,6 @@
 const Account = require("../../model/Account");
 const User = require("../../model/User");
-const AppErr = require("../../utils/appErr");
+const AppErr = require("../../utils/AppErr");
 
 // Create Account
 const createAccountCtrl = async (req, res, next) => {

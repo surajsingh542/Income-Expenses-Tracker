@@ -34,6 +34,14 @@ const Register = () => {
               <h3 className="mb-4 text-2xl md:text-3xl font-bold">
                 Register for an account
               </h3>
+
+              <p>
+                {error && (
+                  <span className="mb-4 text-xl md:text-xl text-red-500 font-medium">
+                    {error}
+                  </span>
+                )}
+              </p>
             </div>
             <form onSubmit={onSubmitHandler}>
               <div className="mb-6">
@@ -46,11 +54,12 @@ const Register = () => {
                 <input
                   id="fullname"
                   name="fullname"
+                  required
                   onChange={onChangeHandler}
                   value={formData.fullname}
                   className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-sm placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                   type="text"
-                  placeholder="I-Nooovotek Academy"
+                  placeholder="Abc"
                 />
               </div>
               <div className="mb-6">
@@ -63,11 +72,12 @@ const Register = () => {
                 <input
                   id="email"
                   name="email"
+                  required
                   className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-sm placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                   type="email"
                   onChange={onChangeHandler}
                   value={formData.email}
-                  placeholder="i-novotek@gmail.com"
+                  placeholder="abc@gmail.com"
                 />
               </div>
               <div className="mb-4">
@@ -80,11 +90,12 @@ const Register = () => {
                 <input
                   id="password"
                   name="password"
+                  required
                   onChange={onChangeHandler}
                   value={formData.password}
                   className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-sm placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                   type="password"
-                  placeholder="************"
+                  placeholder="********"
                 />
               </div>
               <div className="flex flex-wrap items-center justify-between mb-6"></div>

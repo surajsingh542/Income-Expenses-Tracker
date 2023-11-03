@@ -163,7 +163,7 @@ const AuthContextProvider = ({ children }) => {
         formData,
         config
       );
-      if (res?.data?.status === "success") {
+      if (res.data?.status === "success") {
         dispatch({
           type: REGISTER_SUCCESS,
           payload: res.data,
