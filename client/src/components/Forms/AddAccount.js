@@ -5,7 +5,7 @@ export default function AddAccount() {
   const { createAccountAction, error } = useContext(accountContext);
   const [formData, setFormData] = useState({
     name: "",
-    accountType: "",
+    accountType: "Savings",
     initialBalance: "",
     notes: "",
   });
@@ -28,6 +28,13 @@ export default function AddAccount() {
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
             Add Account
           </h2>
+          <p>
+            {error && (
+              <span className="mb-4 text-xl md:text-xl text-red-500 font-medium">
+                {error}
+              </span>
+            )}
+          </p>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -78,7 +85,7 @@ export default function AddAccount() {
                   <option value="Checking">Checking</option>
                   <option value="Credit Card">Credit Card</option>
                   <option value="Utilities">Utilities</option>
-                  <option value="Builing">Builing</option>
+                  <option value="Building">Building</option>
                   <option value="Travel">Travel</option>
                   <option value="Education">Education</option>
                   <option value="Personal">Personal</option>
@@ -97,6 +104,7 @@ export default function AddAccount() {
                     rows={4}
                     name="notes"
                     type="text"
+                    required={true}
                     value={formData.notes}
                     onChange={handleChange}
                     className="block w-full border-2 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -108,7 +116,7 @@ export default function AddAccount() {
                   type="submit"
                   className="flex w-full  justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  Add New Transaction
+                  Add New Account
                 </button>
               </div>
             </form>

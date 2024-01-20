@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { authContext } from "../context/AuthContext/AuthContext";
 import { Link } from "react-router-dom";
 
@@ -25,6 +25,10 @@ const Login = () => {
     // dispatch Action
     loginUserAction(formData);
   };
+
+  useEffect(() => {
+    userAuth.error = "";
+  });
 
   return (
     <>

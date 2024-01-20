@@ -49,10 +49,10 @@ export default function Navbar() {
                   {userAuth?.userAuth?.token && (
                     <>
                       <Link
-                        to="/add-transaction"
+                        to="/dashboard/accounts/create"
                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                       >
-                        Add Transaction
+                        Add Account
                       </Link>
                       <Link
                         to="/dashboard"

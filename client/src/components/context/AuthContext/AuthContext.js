@@ -9,7 +9,6 @@ import {
   REGISTER_FAIL,
 } from "./authActionTypes";
 import axios from "axios";
-import { API_URL_USER } from "../../../utils/apiURL";
 // auth context
 export const authContext = createContext();
 
@@ -99,7 +98,11 @@ const AuthContextProvider = ({ children }) => {
       },
     };
     try {
-      const res = await axios.post(`${API_URL_USER}/login`, formData, config);
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL_USER}/login`,
+        formData,
+        config
+      );
       if (res?.data?.status === "success") {
         dispatch({
           type: LOGIN_SUCCESS,
@@ -125,7 +128,10 @@ const AuthContextProvider = ({ children }) => {
       },
     };
     try {
-      const res = await axios.get(`${API_URL_USER}/profile`, config);
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL_USER}/profile`,
+        config
+      );
       if (res?.data) {
         dispatch({
           type: FETCH_PROFILE_SUCCESS,
@@ -159,7 +165,7 @@ const AuthContextProvider = ({ children }) => {
     };
     try {
       const res = await axios.post(
-        `${API_URL_USER}/register`,
+        `${process.env.REACT_APP_API_URL_USER}/register`,
         formData,
         config
       );

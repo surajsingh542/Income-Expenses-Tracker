@@ -8,6 +8,7 @@ const createAccountCtrl = async (req, res, next) => {
   try {
     // 1. Find the logged in user
     const userFound = await User.findById(req.user);
+    console.log("UserFound", userFound);
     if (!userFound) {
       return next(new AppErr("User not found", 404));
     }
@@ -19,6 +20,8 @@ const createAccountCtrl = async (req, res, next) => {
       notes,
       createdBy: req.user,
     });
+
+    console.log("Account Created", account);
     // 3. push the account into users accounts field
     userFound.accounts.push(account._id);
     // 4. resave the user

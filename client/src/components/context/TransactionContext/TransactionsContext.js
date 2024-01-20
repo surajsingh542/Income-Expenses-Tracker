@@ -1,6 +1,5 @@
 import React, { createContext, useReducer } from "react";
 import axios from "axios";
-import { API_URL_TRANSACTION } from "../../../utils/apiURL";
 
 import {
   TRANSACTION_CREATION_SUCCESS,
@@ -51,7 +50,7 @@ export const TransactionContextProvider = ({ children }) => {
       };
       //request
       const res = await axios.post(
-        `${API_URL_TRANSACTION}`,
+        `${process.env.REACT_APP_API_URL_TRANSACTION}`,
         accountData,
         config
       );

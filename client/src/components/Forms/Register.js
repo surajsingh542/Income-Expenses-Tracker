@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { authContext } from "../context/AuthContext/AuthContext";
 
 const Register = () => {
-  const { registerUserAction, error } = useContext(authContext);
+  const { registerUserAction, userAuth } = useContext(authContext);
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -25,6 +25,10 @@ const Register = () => {
     registerUserAction(formData);
   };
 
+  useEffect(() => {
+    userAuth.error = "";
+  });
+
   return (
     <>
       <section className="py-24 md:py-32 bg-white">
@@ -36,9 +40,9 @@ const Register = () => {
               </h3>
 
               <p>
-                {error && (
+                {userAuth.error && (
                   <span className="mb-4 text-xl md:text-xl text-red-500 font-medium">
-                    {error}
+                    {userAuth.error}
                   </span>
                 )}
               </p>

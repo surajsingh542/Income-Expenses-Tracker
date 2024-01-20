@@ -32,6 +32,13 @@ export default function AddTransaction() {
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
             Add Transaction
           </h2>
+          <p>
+            {error && (
+              <span className="mb-4 text-xl md:text-xl text-red-500 font-medium">
+                {error}
+              </span>
+            )}
+          </p>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -97,7 +104,7 @@ export default function AddTransaction() {
                   <option value="Entertainment">Entertainment</option>
                   <option value="Shopping">Shopping</option>
                   <option value="Utilities">Utilities</option>
-                  <option value="Healt">Health</option>
+                  <option value="Health">Health</option>
                   <option value="Travel">Travel</option>
                   <option value="Education">Education</option>
                   <option value="Personal">Personal</option>

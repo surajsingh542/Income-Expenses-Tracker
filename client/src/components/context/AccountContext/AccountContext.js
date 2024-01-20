@@ -5,7 +5,6 @@ import {
   ACCOUNT_CREATION_SUCCESS,
   ACCOUNT_CREATION_FAIL,
 } from "./accountActionTypes";
-import { API_URL_ACCOUNT } from "../../../utils/apiURL";
 import axios from "axios";
 
 import { useContext } from "react";
@@ -75,7 +74,10 @@ export const AccountContextProvider = ({ children }) => {
       },
     };
     try {
-      const res = await axios.get(`${API_URL_ACCOUNT}/${id}`, config);
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL_ACCOUNT}/${id}`,
+        config
+      );
       if (res?.data?.status === "success") {
         // dispatch
         dispatch({
@@ -102,7 +104,11 @@ export const AccountContextProvider = ({ children }) => {
     };
     try {
       console.log("Formdata", formData);
-      const res = await axios.post(`${API_URL_ACCOUNT}`, formData, config);
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL_ACCOUNT}`,
+        formData,
+        config
+      );
       if (res?.data?.status === "success") {
         // dispatch
         dispatch({
